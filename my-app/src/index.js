@@ -5,6 +5,25 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 
 
+//--------------------footer-------------------
+
+const images = require.context('./assets/images/desktop/footer', true);
+const imageText = {
+  // asignar el texto a cada imagen por nombre 
+  'image-deep-earth.jpg':'texto de la imagen',
+  'nombredeimagen.jpg':'texto de la imagen',
+  'nombredeimagen.jpg':'texto de la imagen',
+  'nombredeimagen.jpg':'texto de la imagen',
+  'nombredeimagen.jpg':'texto de la imagen',
+  'nombredeimagen.jpg':'texto de la imagen',
+  'nombredeimagen.jpg':'texto de la imagen',
+  'nombredeimagen.jpg':'texto de la imagen',
+  'nombredeimagen.jpg':'texto de la imagen',
+  'nombredeimagen.jpg':'texto de la imagen',
+};
+
+//--------------------footer-------------------
+
 function Header() {
   return (
     <header>
@@ -22,10 +41,20 @@ function Main (){
   );
 }
 
-function Footer (){
-  return  (
+function Footer() {
+  return (
     <footer>
       <h4>OUR CREATIONS</h4>
+      <div style={{ position: 'relative' }}>
+        {images.keys().map((imagesPath, index) => (
+          <div key={imagesPath} style={{ position: 'relative', display: 'inline-block', marginRight: '20px' }}>
+            <img src={images(imagesPath)} alt={`Creation ${index + 1}`} />
+            <p style={{ position: 'absolute', top: '0', left: '0', color: '#fff', backgroundColor: 'rgba(0, 0, 0, 0.5)', padding: '5px' }}>Creation {index + 1}</p>
+            {/* ESTE ESTILO ESTA PROVISIONAL PUESTO DENTRO DEL MISMO P PARA ASI PINTAR LAS IMAGENES , AL HABERLAS PINTADO DE ESTA FORMA LAS IMAGENES YA VIENEN TIPO RESPONSIVE */}
+          
+          </div>
+        ))}
+      </div>
     </footer>
   );
 }
