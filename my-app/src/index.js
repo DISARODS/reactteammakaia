@@ -10,16 +10,14 @@ import reportWebVitals from './reportWebVitals';
 const images = require.context('./assets/images/desktop/footer', true);
 const imageText = {
   // asignar el texto a cada imagen por nombre 
-  'image-deep-earth.jpg':'texto de la imagen',
-  'nombredeimagen.jpg':'texto de la imagen',
-  'nombredeimagen.jpg':'texto de la imagen',
-  'nombredeimagen.jpg':'texto de la imagen',
-  'nombredeimagen.jpg':'texto de la imagen',
-  'nombredeimagen.jpg':'texto de la imagen',
-  'nombredeimagen.jpg':'texto de la imagen',
-  'nombredeimagen.jpg':'texto de la imagen',
-  'nombredeimagen.jpg':'texto de la imagen',
-  'nombredeimagen.jpg':'texto de la imagen',
+  'image-deep-earth.jpg':'DEEP EARTH',
+  'image-night-arcade.jpg':'NIGHT ARCADE',
+  'image-soccer-team.jpg':'SOCCER TEAM VR',
+  'image-grid.jpg':'THE GRID',
+  'image-from-above.jpg':'FROM UP ABOVE VR',
+  'image-pocket-borealis.jpg':'POCKET BOREALIS',
+  'image-curiosity.jpg':'THE CURIOSITY',
+  'image-fisheye.jpg':'MAKE IT FISHEYE',
 };
 
 //--------------------footer-------------------
@@ -46,18 +44,24 @@ function Footer() {
     <footer>
       <h4>OUR CREATIONS</h4>
       <div style={{ position: 'relative' }}>
-        {images.keys().map((imagesPath, index) => (
-          <div key={imagesPath} style={{ position: 'relative', display: 'inline-block', marginRight: '20px' }}>
-            <img src={images(imagesPath)} alt={`Creation ${index + 1}`} />
-            <p style={{ position: 'absolute', top: '0', left: '0', color: '#fff', backgroundColor: 'rgba(0, 0, 0, 0.5)', padding: '5px' }}>Creation {index + 1}</p>
-            {/* ESTE ESTILO ESTA PROVISIONAL PUESTO DENTRO DEL MISMO P PARA ASI PINTAR LAS IMAGENES , AL HABERLAS PINTADO DE ESTA FORMA LAS IMAGENES YA VIENEN TIPO RESPONSIVE */}
-          
-          </div>
-        ))}
+        {images.keys().map((imagesPath, index) => {
+          const imageName = imagesPath.split('/').pop().split('.')[0]; // obtener el nombre de la imagen sin la extensión
+          const text = imageText[`${imageName}.jpg`]; // buscar el texto correspondiente en imageText
+
+          return (
+            <div key={imagesPath} style={{ position: 'relative', display: 'inline-block', marginRight: '20px' }}>
+              <img src={images(imagesPath)} alt={`Creation ${index + 1}`} />
+              <p style={{ position: 'absolute', top: '80%', color: '#fff', backgroundColor: 'none', padding: '5px', fontSize: '2rem'}}>
+                {text} {/* mostrar el texto correspondiente */}
+              </p>
+            </div>
+          );
+        })}
       </div>
     </footer>
   );
 }
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
