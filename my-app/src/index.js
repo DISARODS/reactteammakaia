@@ -4,6 +4,27 @@ import './index.css';
 // import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+//--------------------new styled footer-------------------
+
+import styled from 'styled-components';
+
+//--------------------const footer-------------------
+
+const images = require.context('./assets/images/desktop/footer', true);
+const imageText = {
+  // asignar el texto a cada imagen por nombre 
+  'image-deep-earth.jpg':'DEEP EARTH',
+  'image-night-arcade.jpg':'NIGHT ARCADE',
+  'image-soccer-team.jpg':'SOCCER TEAM VR',
+  'image-grid.jpg':'THE GRID',
+  'image-from-above.jpg':'FROM UP ABOVE VR',
+  'image-pocket-borealis.jpg':'POCKET BOREALIS',
+  'image-curiosity.jpg':'THE CURIOSITY',
+  'image-fisheye.jpg':'MAKE IT FISHEYE',
+};
+
+//--------------------const footer-------------------
+
 function Header() {
   return (
     <header>
@@ -21,13 +42,91 @@ function Main (){
   );
 }
 
-function Footer (){
-  return  (
-    <footer>
+//--------------------styled components for new footer------------------
+const FooterContainer = styled.footer`
+  background-color: #fff;
+  color:  #1f1f1f;
+  padding: 30px 20px;
+
+  h4 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+`;
+
+const CreationsContainer = styled.div`
+  position: relative;
+
+  & > div {
+    position: relative;
+    display: inline-block;
+    margin-right: 20px;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+
+    p {
+      position: absolute;
+      top: 80%;
+      color: #fff;
+      padding: 5px;
+      font-size: 2rem;
+    }
+  }
+`;
+//-------------------- new footer-------------------
+function Footer() {
+  return (
+    <FooterContainer>
       <h4>OUR CREATIONS</h4>
-    </footer>
+      <CreationsContainer>
+        {images.keys().map((imagesPath, index) => {
+          const imageName = imagesPath.split('/').pop().split('.')[0]; // obtener el nombre de la imagen sin la extensión
+          const text = imageText[`${imageName}.jpg`]; // buscar el texto correspondiente en imageText
+
+          return (
+            <div key={imagesPath}>
+              <img src={images(imagesPath)} alt={`Creation ${index + 1}`} />
+              <p>{text}</p>
+            </div>
+          );
+        })}
+      </CreationsContainer>
+    </FooterContainer>
   );
 }
+
+//-------------------- new footer-------------------
+//--------------------footer old-------------------
+
+// function Footer() {
+//   return (
+//     <footer>
+//       <h4>OUR CREATIONS</h4>
+//       <div style={{ position: 'relative' }}>
+//         {images.keys().map((imagesPath, index) => {
+//           const imageName = imagesPath.split('/').pop().split('.')[0]; // obtener el nombre de la imagen sin la extensión
+//           const text = imageText[`${imageName}.jpg`]; // buscar el texto correspondiente en imageText
+
+//           return (
+//             <div key={imagesPath} style={{ position: 'relative', display: 'inline-block', marginRight: '20px' }}>
+//               <img src={images(imagesPath)} alt={`Creation ${index + 1}`} />
+//               <p style={{ position: 'absolute', top: '80%', color: '#fff', backgroundColor: 'none', padding: '5px', fontSize: '2rem'}}>
+//                 {text} {/* mostrar el texto correspondiente */}
+//               </p>
+//             </div>
+//           );
+//         })}
+//       </div>
+//     </footer>
+//   );
+// }
+
+//--------------------footer old-------------------
+
+//--------------------final part-------------------
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -44,3 +143,10 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+
+
+
+
+
+
