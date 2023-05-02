@@ -8,7 +8,7 @@ import reportWebVitals from './reportWebVitals';
 
 import styled from 'styled-components';
 
-//--------------------footer-------------------
+//--------------------const footer-------------------
 
 const images = require.context('./assets/images/desktop/footer', true);
 const imageText = {
@@ -23,7 +23,7 @@ const imageText = {
   'image-fisheye.jpg':'MAKE IT FISHEYE',
 };
 
-//--------------------footer-------------------
+//--------------------const footer-------------------
 
 function Header() {
   return (
@@ -98,8 +98,8 @@ function Footer() {
   );
 }
 
-
-//--------------------footer-------------------
+//-------------------- new footer-------------------
+//--------------------footer old-------------------
 
 // function Footer() {
 //   return (
@@ -124,7 +124,9 @@ function Footer() {
 //   );
 // }
 
-//--------------------footer-------------------
+//--------------------footer old-------------------
+
+//--------------------final part-------------------
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
