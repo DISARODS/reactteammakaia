@@ -17,9 +17,22 @@ html{
 }
 
 header{
+border: 6px solid white;
 }
 
 main{
+  /* width: 30%;
+  background-color: aliceblue;
+  height: 30%;
+  position: relative;
+  color: grey; */
+  /* display:flex;
+  flex-direction: column;
+  gap:1rem;
+  justify-self: center;
+  align-self: center; */
+  /* justify-content: center;
+  align-items: center; */
 }
 
 footer{
