@@ -7,6 +7,7 @@ import reportWebVitals from './reportWebVitals';
 //--------------------new styled footer-------------------
 
 import styled from 'styled-components';
+import ImageHeader from './assets/images/image-hero.jpg';
 
 //--------------------const footer-------------------
 
@@ -23,13 +24,39 @@ const imageText = {
   'image-fisheye.jpg':'MAKE IT FISHEYE',
 };
 
+
+//--------------------styled components header------------------
+// const BannerHeader = styled.header`
+// background-image: url("./assets/images/image-hero.jpg");
+// height: 50vh;
+// background-size: cover;
+// `;
+
+
+
 //--------------------const footer-------------------
 
 function Header() {
   return (
     <header>
-      <h1>IMMERSIRVE EXPERIENCES THAT DELIVER</h1>
+      <nav>
+        <h2>Loopstudios</h2>
+        <ul>
+          <li>About</li>
+          <li>Careers</li>
+          <li>Events</li>
+          <li>Products</li>
+          <li>Support</li>
+        </ul>
+      </nav>
+      <div> 
+        <img src={ImageHeader} alt="imagen hero"></img>
+        <div>
+        <h1>IMMERSIRVE EXPERIENCES THAT DELIVER</h1>
+        </div>
+      </div>
     </header>
+    
   );
 }
 
