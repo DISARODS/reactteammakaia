@@ -14,23 +14,64 @@ import ImageHeader from './assets/images/image-hero.jpg';
 const images = require.context('./assets/images/desktop/footer', true);
 const imageText = {
   // asignar el texto a cada imagen por nombre 
-  'image-deep-earth.jpg':'DEEP EARTH',
-  'image-night-arcade.jpg':'NIGHT ARCADE',
-  'image-soccer-team.jpg':'SOCCER TEAM VR',
-  'image-grid.jpg':'THE GRID',
-  'image-from-above.jpg':'FROM UP ABOVE VR',
-  'image-pocket-borealis.jpg':'POCKET BOREALIS',
-  'image-curiosity.jpg':'THE CURIOSITY',
-  'image-fisheye.jpg':'MAKE IT FISHEYE',
+  'image-deep-earth.jpg': 'DEEP EARTH',
+  'image-night-arcade.jpg': 'NIGHT ARCADE',
+  'image-soccer-team.jpg': 'SOCCER TEAM VR',
+  'image-grid.jpg': 'THE GRID',
+  'image-from-above.jpg': 'FROM UP ABOVE VR',
+  'image-pocket-borealis.jpg': 'POCKET BOREALIS',
+  'image-curiosity.jpg': 'THE CURIOSITY',
+  'image-fisheye.jpg': 'MAKE IT FISHEYE',
 };
 
 
 //--------------------styled components header------------------
-// const BannerHeader = styled.header`
-// background-image: url("./assets/images/image-hero.jpg");
-// height: 50vh;
-// background-size: cover;
-// `;
+const BannerHeader = styled.header`
+header {
+  justify-content: space-between;
+}
+
+header h1 {
+  position: absolute;
+  font-size: 90px;
+  font-style: normal;
+  font-weight: lighter;
+  top: 30%;
+  padding: 15px 50px;
+  border: 3px solid white;
+  margin-left: 60px;
+  color: white;
+  width: 500px;
+  line-height: 1.1;
+}
+header img {
+  width: 100%;
+  height: 30%;
+}
+header nav {
+  
+  display: flex;
+  align-items: center;
+  color: white;
+  padding: 18px 18px 18px 65px;
+  justify-content: space-between;
+}
+
+ul{
+  color: white;
+  justify-content: space-between;
+  gap: 30px;
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+}
+
+ul li:hover{
+  border-bottom: 3px solid white;
+  cursor: pointer;
+}
+
+`;
 
 
 
@@ -38,7 +79,7 @@ const imageText = {
 
 function Header() {
   return (
-    <header>
+    <BannerHeader>
       <nav>
         <h2>Loopstudios</h2>
         <ul>
@@ -49,18 +90,18 @@ function Header() {
           <li>Support</li>
         </ul>
       </nav>
-      <div> 
+      <div>
         <img src={ImageHeader} alt="imagen hero"></img>
         <div>
-        <h1>IMMERSIRVE EXPERIENCES THAT DELIVER</h1>
+          <h1>IMMERSIRVE EXPERIENCES THAT DELIVER</h1>
         </div>
       </div>
-    </header>
-    
+    </BannerHeader>
+
   );
 }
 
-function Main (){
+function Main() {
   return (
     <main>
       <h1>THE LEADER IN INTERACTIVE VR</h1>
@@ -158,9 +199,9 @@ function Footer() {
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Header/>
-    <Main/>
-    <Footer/>
+    <Header />
+    <Main />
+    <Footer />
     {/* <App />  */}
     {/* QUITAR APP AL FINALIZAR  */}
   </React.StrictMode>

@@ -17,21 +17,25 @@ html {
 }
 
 header {
-  justify-content: space-between;
 }
 
 header h1 {
   position: absolute;
-  font-size: 50px;
+  font-size: 70px;
   font-style: normal;
   font-weight: lighter;
-  top: 30%;
+  top: 25%;
   padding: 15px 50px;
   border: 3px solid white;
-  margin-left: 50px;
+  margin-left: 100px;
   color: white;
-  width: 400px;
+  width: 500px;
   line-height: 1.5;
+}
+
+header h2{
+  font-size: 40px;
+  margin-left: 40px;
 }
 header img {
   width: 100%;
@@ -43,16 +47,15 @@ header nav {
   align-items: center;
   color: white;
   padding: 18px 18px 18px 65px;
+  gap: 60px;
   justify-content: space-between;
+  display: flex;
 }
 
 ul{
   color: white;
-  justify-content: space-between;
-  gap: 30px;
   list-style: none;
   display: flex;
-  justify-content: flex-end;
 }
 
 ul li:hover{
