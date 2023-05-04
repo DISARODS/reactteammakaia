@@ -44,19 +44,18 @@ header img {
 header nav {
   position: absolute;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   color: white;
   padding: 18px 18px 18px 65px;
   gap: 60px;
-  justify-content: space-between;
-  display: flex;
+  
 }
 
 ul{
   color: white;
   list-style: none;
-  display: flex;
-}
+  }
 
 ul li:hover{
   border-bottom: 3px solid white;
