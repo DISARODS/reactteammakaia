@@ -6,9 +6,11 @@ import reportWebVitals from './reportWebVitals';
 
 //--------------------new styled footer-------------------
 
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 import ImageHeader from './assets/images/image-hero.jpg';
-
+import ImageHeaderomobil from './assets/images/mobile/image-hero.jpg';
+import LogoHeader from './assets/images/logo.svg';
+import MenuHamburguesa from './assets/images/icon-hamburger.svg'
 //--------------------const footer-------------------
 
 const images = require.context('./assets/images/desktop/footer', true);
@@ -24,26 +26,41 @@ const imageText = {
   'image-fisheye.jpg':'MAKE IT FISHEYE',
 };
 
+//..................array lista.........................
+const list = [
+  {
+  texto: "About",
+  link: "#About"
+  },
+  {
+    texto: "Careers",
+    link: "#Careers"
+  },
+  {
+    texto: "Events",
+    link: "#Events"
+  },
+  {
+    texto: "Products",
+    link: "#Products"
+  },
+]
+
 
 //--------------------styled components header------------------
 const BannerHeader = styled.header`
  h1 {
   position: absolute;
-  font-size: 70px;
+  font-size: 80px;
   font-style: normal;
   font-weight: lighter;
-  top: 25%;
-  padding: 15px 50px;
+  top: 35%;
+  padding: 30px 50px;
   border: 3px solid white;
   margin-left: 100px;
   color: white;
-  width: 500px;
-  line-height: 1.5;
-}
-
-h2{
-  font-size: 40px;
-  margin-left: 40px;
+  width: 600px;
+  line-height: 1.0;
 }
 
 img {
@@ -52,7 +69,9 @@ img {
 }
 
 nav {
-  position: absolute;
+  width: 90%;
+  position:absolute;
+  top: 70px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -67,12 +86,84 @@ ul{
   list-style: none;
   display: flex;
   gap: 40px;
-  }
+}
+
+li a{
+  text-decoration: none;
+  color: white;
+}
 
 ul li:hover{
   border-bottom: 3px solid white;
   cursor: pointer;
 }
+
+.imagen-mobile{
+  display: none;
+}
+
+.logo{
+  width: 15%;
+  position: relative;
+  left: 40px;
+}
+
+.iconohamburguesa{
+  display: none;
+}
+
+${({ theme }) => css`
+    @media (max-width: 375px) {
+      header {
+    
+        img {
+          display: none;
+        }
+        
+        .imagen-mobile{
+          display: flex;
+          width: 100%;
+          object-fit: cover;
+        }
+
+        .logo{
+          width: 15%;
+          position: relative;
+          left: 40px;  
+          z-index: 3;
+        }
+
+        h1 {
+          position: absolute;
+          font-size: 40px;
+          font-style: normal;
+          font-weight: lighter;
+          top: 25%;
+          padding: 35px 50px;
+          border: 3px solid white;
+          margin-left: 30px;
+          color: white;
+          width: 200px;
+          line-height: 1.0;
+        }
+
+        .iconohamburguesa{
+          display: block;
+          top: -30px;
+          width: 25px;
+          height: auto;
+          position: absolute;
+          left: 330px;
+        }
+
+        ul {
+          display:none;
+        }
+
+      }
+    
+    }
+  `}
 `;
 
 
@@ -82,22 +173,22 @@ ul li:hover{
 function Header() {
   return (
     <BannerHeader>
+      <header>
       <nav>
-        <h2>Loopstudios</h2>
+        <img src={LogoHeader} alt='logo' className='logo'></img>
         <ul>
-          <li>About</li>
-          <li>Careers</li>
-          <li>Events</li>
-          <li>Products</li>
-          <li>Support</li>
+         {list.map (item=> <li><a href={item.link}>{item.texto}</a></li>)}
         </ul>
+        <img src={MenuHamburguesa} alt='hamburguesa' className='iconohamburguesa'></img>
       </nav>
       <div> 
+        <img src={ImageHeaderomobil} className='imagen-mobile' alt="imagen hero mobil"></img>
         <img src={ImageHeader} alt="imagen hero"></img>
         <div>
         <h1>IMMERSIRVE EXPERIENCES THAT DELIVER</h1>
         </div>
       </div>
+      </header>
     </BannerHeader>
     
   );
@@ -113,60 +204,60 @@ function Main (){
 }
 
 //--------------------styled components for new footer------------------
-const FooterContainer = styled.footer`
-  background-color: #fff;
-  color:  #1f1f1f;
-  padding: 30px 20px;
+// const FooterContainer = styled.footer`
+//   background-color: #fff;
+//   color:  #1f1f1f;
+//   padding: 30px 20px;
 
-  h4 {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-  }
-`;
+//   h4 {
+//     font-size: 1.5rem;
+//     margin-bottom: 20px;
+//   }
+// `;
 
-const CreationsContainer = styled.div`
-  position: relative;
+// const CreationsContainer = styled.div`
+//   position: relative;
 
-  & > div {
-    position: relative;
-    display: inline-block;
-    margin-right: 20px;
+//   & > div {
+//     position: relative;
+//     display: inline-block;
+//     margin-right: 20px;
 
-    img {
-      width: 100%;
-      height: auto;
-    }
+//     img {
+//       width: 100%;
+//       height: auto;
+//     }
 
-    p {
-      position: absolute;
-      top: 80%;
-      color: #fff;
-      padding: 5px;
-      font-size: 2rem;
-    }
-  }
-`;
+//     p {
+//       position: absolute;
+//       top: 80%;
+//       color: #fff;
+//       padding: 5px;
+//       font-size: 2rem;
+//     }
+//   }
+// `;
 //-------------------- new footer-------------------
-function Footer() {
-  return (
-    <FooterContainer>
-      <h4>OUR CREATIONS</h4>
-      <CreationsContainer>
-        {images.keys().map((imagesPath, index) => {
-          const imageName = imagesPath.split('/').pop().split('.')[0]; // obtener el nombre de la imagen sin la extensión
-          const text = imageText[`${imageName}.jpg`]; // buscar el texto correspondiente en imageText
+// function Footer() {
+//   return (
+//     <FooterContainer>
+//       <h4>OUR CREATIONS</h4>
+//       <CreationsContainer>
+//         {images.keys().map((imagesPath, index) => {
+//           const imageName = imagesPath.split('/').pop().split('.')[0]; // obtener el nombre de la imagen sin la extensión
+//           const text = imageText[`${imageName}.jpg`]; // buscar el texto correspondiente en imageText
 
-          return (
-            <div key={imagesPath}>
-              <img src={images(imagesPath)} alt={`Creation ${index + 1}`} />
-              <p>{text}</p>
-            </div>
-          );
-        })}
-      </CreationsContainer>
-    </FooterContainer>
-  );
-}
+//           return (
+//             <div key={imagesPath}>
+//               <img src={images(imagesPath)} alt={`Creation ${index + 1}`} />
+//               <p>{text}</p>
+//             </div>
+//           );
+//         })}
+//       </CreationsContainer>
+//     </FooterContainer>
+//   );
+// }
 
 //-------------------- new footer-------------------
 //--------------------footer old-------------------
@@ -203,7 +294,7 @@ root.render(
   <React.StrictMode>
     <Header/>
     <Main/>
-    <Footer/>
+    {/* <Footer/> */}
     {/* <App />  */}
     {/* QUITAR APP AL FINALIZAR  */}
   </React.StrictMode>

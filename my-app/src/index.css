@@ -16,58 +16,18 @@ code {
 html {
 }
 
+
 header {
-}
-
-/* header h1 {
-  position: absolute;
-  font-size: 70px;
-  font-style: normal;
-  font-weight: lighter;
-  top: 25%;
-  padding: 15px 50px;
-  border: 3px solid white;
-  margin-left: 100px;
-  color: white;
-  width: 500px;
-  line-height: 1.5;
-}
-
-header h2{
-  font-size: 40px;
-  margin-left: 40px;
-}
-header img {
-  width: 100%;
-  height: 30%;
-}
-header nav {
-  position: absolute;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: white;
-  padding: 18px 18px 18px 65px;
-  gap: 60px;
   
 }
-
-ul{
-  color: white;
-  list-style: none;
-  display: flex;
-  gap: 40px;
-  }
-
-ul li:hover{
-  border-bottom: 3px solid white;
-  cursor: pointer;
-} */
 
 
 
 main {
+ 
 }
 
 footer {
 }
+
+
