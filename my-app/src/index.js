@@ -10,8 +10,9 @@ import styled, {css} from 'styled-components';
 import ImageHeader from './assets/images/image-hero.jpg';
 import ImageHeaderomobil from './assets/images/mobile/image-hero.jpg';
 import LogoHeader from './assets/images/logo.svg';
-import MenuHamburguesa from './assets/images/icon-hamburger.svg'
-import LogoMobile from './assets/images/mobile/logomobile.svg'
+import MenuHamburguesa from './assets/images/icon-hamburger.svg';
+import LogoMobile from './assets/images/mobile/logomobile.svg';
+import CloseMenu from './assets/images/icon-close.svg';
 //--------------------const footer-------------------
 
 const images = require.context('./assets/images/desktop/footer', true);
@@ -59,6 +60,10 @@ const HamburguesaHeader = styled.header`
   ul{
     display: block;
   }
+ 
+
+    
+   
   }
 `;
 
@@ -177,6 +182,9 @@ ${({ theme }) => css`
         }
     
         ul {
+          width: 68%;
+          margin-left: -50px;
+          height: 900%;
           display: none;
           top: -10px;
           font-size: 20px;
@@ -214,17 +222,25 @@ ${({ theme }) => css`
 
 function DespliegueMenu(){
   console.log('Se hizo clic en el botón');
-  // Header.style.header = 'none';
+  const ul = document.querySelector('nav ul');
+  const botonHamburguesa = document.querySelector('.botonHamburguesa');
   
-  return (
-    <HamburguesaHeader>
-      <header>
-        <h1>IMMERSIRVE EXPERIENCES THAT DELIVER</h1>
-        <ul></ul>
-      </header>
-    </HamburguesaHeader>
-  );
+  if (ul.style.display === 'none' || ul.style.display === '') {
+    ul.style.display = 'block';
+    botonHamburguesa.src = CloseMenu; // Reemplaza 'XImage' con la ruta de tu imagen X
+  } else {
+    ul.style.display = 'none';
+    botonHamburguesa.src = MenuHamburguesa; // Reemplaza 'MenuHamburguesa' con la ruta de tu imagen de hamburguesa
+  }
 }
+  // return (
+  //   <HamburguesaHeader>
+  //     <header>
+  //       <h1>IMMERSIRVE EXPERIENCES THAT DELIVER</h1>
+  //       <ul></ul>
+  //     </header>
+  //   </HamburguesaHeader>
+  // );
 
 
 
@@ -242,6 +258,7 @@ function Header() {
          {list.map (item=> <li><a href={item.link}>{item.texto}</a></li>)}
         </ul>
         <button className='fondohamburguesa' onClick={DespliegueMenu}>
+        <img src={CloseMenu} alt='close'></img>
         <img src={MenuHamburguesa} alt='hamburguesa' className='botonHamburguesa'></img>
         </button>
 
@@ -380,7 +397,6 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Header/>
-    <DespliegueMenu/>
     {/* <Boton/> */}
     <Main/>
     {/* <Footer/> */}
