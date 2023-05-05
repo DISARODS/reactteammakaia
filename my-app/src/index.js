@@ -59,10 +59,6 @@ const HamburguesaHeader = styled.header`
   ul{
     display: block;
   }
- 
-
-    
-   
   }
 `;
 
@@ -232,6 +228,7 @@ function DespliegueMenu(){
 
 
 
+
 //--------------------const footer-------------------
 
 function Header() {
@@ -383,6 +380,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Header/>
+    <DespliegueMenu/>
     {/* <Boton/> */}
     <Main/>
     {/* <Footer/> */}
