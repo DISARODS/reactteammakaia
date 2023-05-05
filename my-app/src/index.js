@@ -80,7 +80,10 @@ const CreationsContainer = styled.div`
 function Footer() {
   return (
     <FooterContainer>
-      <h4>OUR CREATIONS</h4>
+      <div>
+        <h4>OUR CREATIONS</h4>
+        <button>SEE ALL</button>
+      </div>
       <CreationsContainer>
         {images.keys().map((imagesPath, index) => {
           const imageName = imagesPath.split('/').pop().split('.')[0]; // obtener el nombre de la imagen sin la extensión
@@ -98,6 +101,23 @@ function Footer() {
   );
 }
 
+function Last() {
+  <div className='PDPAG'>
+    <div className='left'>
+      <h3>
+
+      </h3>
+    </div>
+    <div className='right'>
+      <div className='icons'>
+
+      </div>
+      <div className='info'>
+
+      </div>
+    </div>
+  </div>
+}
 //-------------------- new footer-------------------
 //--------------------footer old-------------------
 
@@ -136,6 +156,7 @@ root.render(
     <Footer/>
     {/* <App />  */}
     {/* QUITAR APP AL FINALIZAR  */}
+    <Last/>
   </React.StrictMode>
 );
 
