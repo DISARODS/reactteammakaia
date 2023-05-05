@@ -11,6 +11,7 @@ import ImageHeader from './assets/images/image-hero.jpg';
 import ImageHeaderomobil from './assets/images/mobile/image-hero.jpg';
 import LogoHeader from './assets/images/logo.svg';
 import MenuHamburguesa from './assets/images/icon-hamburger.svg'
+import LogoMobile from './assets/images/mobile/logomobile.svg'
 //--------------------const footer-------------------
 
 const images = require.context('./assets/images/desktop/footer', true);
@@ -48,6 +49,23 @@ const list = [
 
 
 //--------------------styled components header------------------
+const HamburguesaHeader = styled.header`
+  background-color: black;
+
+  h1{
+  display: none;
+  }
+
+  ul{
+    display: block;
+  }
+ 
+
+    
+   
+  }
+`;
+
 const BannerHeader = styled.header`
  h1 {
   position: absolute;
@@ -108,8 +126,16 @@ ul li:hover{
   left: 40px;
 }
 
-.iconohamburguesa{
+.logomobile{
   display: none;
+}
+
+.fondohamburguesa{
+  display: none;
+  opacity:0;
+  .botonHamburguesa{
+    display: none;
+  }
 }
 
 ${({ theme }) => css`
@@ -130,7 +156,14 @@ ${({ theme }) => css`
           width: 15%;
           position: relative;
           left: 40px;  
-          z-index: 3;
+          z-index: 1000;
+          display:none;
+        }
+
+        .logomobile{
+          display: block;
+          width: 35%;
+          margin-left: -40px;
         }
 
         h1 {
@@ -146,25 +179,56 @@ ${({ theme }) => css`
           width: 200px;
           line-height: 1.0;
         }
-
-        .iconohamburguesa{
-          display: block;
-          top: -30px;
-          width: 25px;
-          height: auto;
-          position: absolute;
-          left: 330px;
-        }
-
+    
         ul {
-          display:none;
+          display: none;
+          top: -10px;
+          font-size: 20px;
+          text-transform: uppercase;
+          line-height: 2.5;
+          position: absolute;
+          background-color: black;
         }
 
+
+        .fondohamburguesa{
+          display: block;
+          opacity:1;
+          background-color: transparent;
+          width: 40px;
+          position: relative;
+          top: -4px;
+          margin-right: 65px;
+          border: none;  
+          .botonHamburguesa{
+          width: 100%;
+          height: 20px;
+          display: block;
+          
+        }
+        }
+        
       }
     
     }
+
+   
   `}
 `;
+
+function DespliegueMenu(){
+  console.log('Se hizo clic en el botón');
+  // Header.style.header = 'none';
+  
+  return (
+    <HamburguesaHeader>
+      <header>
+        <h1>IMMERSIRVE EXPERIENCES THAT DELIVER</h1>
+        <ul></ul>
+      </header>
+    </HamburguesaHeader>
+  );
+}
 
 
 
@@ -175,11 +239,15 @@ function Header() {
     <BannerHeader>
       <header>
       <nav>
+        <img src={LogoMobile} alt='logomobile'className='logomobile'></img>
         <img src={LogoHeader} alt='logo' className='logo'></img>
         <ul>
          {list.map (item=> <li><a href={item.link}>{item.texto}</a></li>)}
         </ul>
-        <img src={MenuHamburguesa} alt='hamburguesa' className='iconohamburguesa'></img>
+        <button className='fondohamburguesa' onClick={DespliegueMenu}>
+        <img src={MenuHamburguesa} alt='hamburguesa' className='botonHamburguesa'></img>
+        </button>
+
       </nav>
       <div> 
         <img src={ImageHeaderomobil} className='imagen-mobile' alt="imagen hero mobil"></img>
@@ -194,6 +262,25 @@ function Header() {
   );
 }
 
+
+//.............funcionalidad menu hamburguesa......................
+
+
+// function Boton() {
+//   function handleClick() {
+//     console.log('Se hizo clic en el botón');
+//   }
+
+//   return (
+//     <HamburguesaHead >
+//     <button onClick={handleClick} className='botonHamburguesa'>
+//        <img src={MenuHamburguesa} alt='hamburguesa'></img>
+//     </button>
+//     </HamburguesaHead >
+//   );
+// }
+
+
 function Main (){
   return (
     <main>
@@ -202,6 +289,9 @@ function Main (){
     </main>
   );
 }
+
+
+
 
 //--------------------styled components for new footer------------------
 // const FooterContainer = styled.footer`
@@ -293,6 +383,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Header/>
+    {/* <Boton/> */}
     <Main/>
     {/* <Footer/> */}
     {/* <App />  */}
