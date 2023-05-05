@@ -227,10 +227,10 @@ function DespliegueMenu(){
   
   if (ul.style.display === 'none' || ul.style.display === '') {
     ul.style.display = 'block';
-    botonHamburguesa.src = CloseMenu; // Reemplaza 'XImage' con la ruta de tu imagen X
+    botonHamburguesa.src = CloseMenu;
   } else {
     ul.style.display = 'none';
-    botonHamburguesa.src = MenuHamburguesa; // Reemplaza 'MenuHamburguesa' con la ruta de tu imagen de hamburguesa
+    botonHamburguesa.src = MenuHamburguesa; 
   }
 }
   // return (
