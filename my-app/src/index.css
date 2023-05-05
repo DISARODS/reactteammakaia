@@ -27,3 +27,48 @@ main{
 
 footer{
 }
+
+.creations-mobile {
+  position: relative;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.creations-mobile img {
+  width: 100%;
+  height: auto;
+}
+
+.creations-mobile p {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.creations-desktop {
+  position: relative;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.creations-desktop img {
+  width: 100%;
+  height: auto;
+}
+
+.creations-desktop p {
+  position: absolute;
+  top: 80%;
+  left: 0;
+  right: 0;
+  padding: 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 2rem;
+}
+
