@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 // import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-//--------------------new styled footer-------------------
+//--------------------new styled header-------------------
 
 import styled, { css } from 'styled-components';
 import ImageHeader from "./assets/images/desktop/header/image-hero.jpg";
@@ -74,7 +74,7 @@ img {
 
 nav {
   width: 90%;
-  position:absolute;
+  position: absolute;
   top: 70px;
   display: flex;
   justify-content: space-between;
@@ -136,6 +136,10 @@ ${({ theme }) => css`
           display: flex;
           width: 100%;
           object-fit: cover;
+          position: relative;
+         z-index: -1000;
+        }          
+          
         }
 
         .logo{
@@ -148,8 +152,9 @@ ${({ theme }) => css`
 
         .logomobile{
           display: block;
-          width: 35%;
-          margin-left: -40px;
+          width: 40%;
+          margin-left: -10px;
+          z-index: 1000;
         }
 
         h1 {
@@ -164,22 +169,43 @@ ${({ theme }) => css`
           color: white;
           width: 200px;
           line-height: 1.0;
+          z-index: -1;
+          
+          
         }
+        ul {
+          display: none;
+        }
+      
+      }
     
+    }
+  `}
+`;
+///--------------------  Estilo Componenete Hamburguesa--------------------
+const HamburguesaHeader = styled.div`
+${({ theme }) => css`
+    @media (max-width: 375px) {
+       {
         ul {
           width: 68%;
-          margin-left: -50px;
+          margin-left: -276px;
           height: 700%;
           display: none;
-          top: -10px;
+          top: -22px;
           font-size: 20px;
           text-transform: uppercase;
           line-height: 2.5;
           position: absolute;
           background-color: black;
-          padding-top: 10%;
+          padding-top: 40%;
+          display: none;
+          z-index: 0;
         }
 
+        .botonCerrar.visible {
+          display: block;
+        }
 
         .fondohamburguesa{
           display: block;
@@ -188,136 +214,31 @@ ${({ theme }) => css`
           width: 40px;
           position: relative;
           top: -4px;
-          margin-right: 65px;
+          margin-right: 75px;
           border: none;  
           .botonHamburguesa{
           width: 100%;
           height: 20px;
           display: block;
-          
         }
-        }
-        
+
       }
-    
     }
 
    
   `}
 `;
-///--------------------estilo nuevo componenete--------------------
-// const HamburguesaHeader = styled.div`
-// ${({ theme }) => css`
-//     @media (max-width: 375px) {
-//       div{
-//         display: flex;
-//         background-color: black;
-//         width: 90%;
-//         height: 100vh;
-//         position:fixed;
-//         .logomobile{
-//           display: flex;
-//           position: absolute;
-//           left: 10px;
-//           top:30px;
-//           width: 90px;
-//           height: 30px;
-//         }
-//         ul {
-//           position: absolute;
-//           width: 68%;
-//           margin-left: -50px;
-//           height: 100vh;
-//           top: 10px;
-//           font-size: 20px;
-//           text-transform: uppercase;
-//           line-height: 2.5;
-//           background-color: transparent;
-//           padding-top: 10%;
-//           left: 20px;
-//         }
-//         li a{
-//           text-decoration: none;
-//           color: white;
-//         }
-//         ul li:hover{
-//           border-bottom: 3px solid white;
-//           cursor: pointer;
-//         }
-//         .fondohamburguesa{
-//           display: block;
-//           opacity:1;
-//           background-color: transparent;
-//           width: 90px;
-//           height: 30px;
-//           position: relative;
-//           left: 250px;
-//           top:30px;
-//           border: none;  
-//           .botonHamburguesa{
-//           width: 100%;
-//           height: 20px;
-//           display: block;
-          
-//         }
-        
-       
-//       }
-//     }
 
-   
-//   `}
-// `;
 
-function DespliegueMenu() {
-  console.log('Se hizo clic en el botón');
-  const ul = document.querySelector('nav ul');
-  const h1 = document.querySelector('div h1');
-  const logoMobile = document.querySelector('.logomobile');
-  const botonHamburguesa = document.querySelector('.botonHamburguesa');
-
-  if (ul.style.display === 'none' || ul.style.display === '') {
-    ul.style.display = 'block';
-    botonHamburguesa.src = CloseMenu;
-    h1.style.display = "none";
-    // logoMobile.style.position="absolute"
-    // logoMobile.style.position="relative"
-    logoMobile.src = LogoMobile;
-  } else {
-    ul.style.display = 'none';
-    botonHamburguesa.src = MenuHamburguesa;
-    h1.style.display = "block";
-  }
-}
-// return (
-//   <HamburguesaHeader>
-//     <header>
-//       <h1>IMMERSIRVE EXPERIENCES THAT DELIVER</h1>
-//       <ul></ul>
-//     </header>
-//   </HamburguesaHeader>
-// );
-
-//-------------------------componente SIDEbAR-----------------------------
-// function SideBar() {
-//   return (
-//     <HamburguesaHeader>
-//     <div>
-//       <img src={LogoMobile} alt='logomobile' className='logomobile'></img>
-//       <button className='fondohamburguesa' onClick={DespliegueMenu}>
-//         <img src={CloseMenu} alt='close'></img>
-//         <img src={MenuHamburguesa} alt='hamburguesa' className='botonHamburguesa'></img>
-//       </button>
-//       <ul>
-//         {list.map(item => <li><a href={item.link}>{item.texto}</a></li>)}
-//       </ul>
-//     </div>
-//     </HamburguesaHeader>
-//   )
-// }
-//--------------------const footer-------------------
 
 function Header() {
+  const [menuAbierto, setMenuAbierto] = useState(false);
+
+  function toggleMenu() {
+    console.log('Se hizo clic en el botón');
+    setMenuAbierto(!menuAbierto);
+  }
+
   return (
     <BannerHeader>
       <header>
@@ -327,12 +248,20 @@ function Header() {
           <ul>
             {list.map(item => <li><a href={item.link}>{item.texto}</a></li>)}
           </ul>
-          <button className='fondohamburguesa' onClick={DespliegueMenu}>
-          {/* <button className='fondohamburguesa' onClick={SideBar}> */}
-            <img src={CloseMenu} alt='close'></img>
-            <img src={MenuHamburguesa} alt='hamburguesa' className='botonHamburguesa'></img>
-          </button>
 
+          <HamburguesaHeader>
+            <div>
+              <ul style={{ display: menuAbierto ? 'block' : 'none' }}>
+                {list.map(item => <li><a href={item.link}>{item.texto}</a></li>)}
+              </ul>
+              <button className='fondohamburguesa' onClick={toggleMenu}>
+                {!menuAbierto &&
+                  <img src={MenuHamburguesa} alt='hamburguesa' className='botonHamburguesa'></img>
+                }
+                <img src={CloseMenu} alt='close' className={`botonCerrar ${menuAbierto ? 'visible' : ''}`} onClick={toggleMenu}></img>
+              </button>
+            </div>
+          </HamburguesaHeader>
         </nav>
         <div>
           <img src={ImageHeaderomobil} className='imagen-mobile' alt="imagen hero mobil"></img>
@@ -347,23 +276,6 @@ function Header() {
   );
 }
 
-
-//.............funcionalidad menu hamburguesa......................
-
-
-// function Boton() {
-//   function handleClick() {
-//     console.log('Se hizo clic en el botón');
-//   }
-
-//   return (
-//     <HamburguesaHead >
-//     <button onClick={handleClick} className='botonHamburguesa'>
-//        <img src={MenuHamburguesa} alt='hamburguesa'></img>
-//     </button>
-//     </HamburguesaHead >
-//   );
-// }
 
 
 function Main() {
