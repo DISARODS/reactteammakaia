@@ -73,7 +73,7 @@ img {
 }
 
 nav {
-  width: 90%;
+  width: 130%;
   position: absolute;
   top: 70px;
   display: flex;
@@ -107,7 +107,7 @@ ul li:hover{
 }
 
 .logo{
-  width: 15%;
+  width: 10%;
   position: relative;
   left: 40px;
 }
@@ -127,6 +127,10 @@ ul li:hover{
 ${({ theme }) => css`
     @media (max-width: 375px) {
       header {
+
+        nav {
+          width: 70%;
+        }
     
         img {
           display: none;
@@ -153,7 +157,7 @@ ${({ theme }) => css`
         .logomobile{
           display: block;
           width: 40%;
-          margin-left: -10px;
+          margin-left: -30px;
           z-index: 1000;
         }
 
@@ -188,9 +192,9 @@ ${({ theme }) => css`
     @media (max-width: 375px) {
        {
         ul {
-          width: 68%;
-          margin-left: -276px;
-          height: 700%;
+          width: 90%;
+          margin-left: -297px;
+          height: 500%;
           display: none;
           top: -22px;
           font-size: 20px;
@@ -214,7 +218,7 @@ ${({ theme }) => css`
           width: 40px;
           position: relative;
           top: -4px;
-          margin-right: 75px;
+          margin-right: -18px;
           border: none;  
           .botonHamburguesa{
           width: 100%;
