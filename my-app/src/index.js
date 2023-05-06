@@ -6,33 +6,33 @@ import reportWebVitals from './reportWebVitals';
 
 //--------------------new styled footer-------------------
 
-import styled, {css} from 'styled-components';
-import ImageHeader from './assets/images/image-hero.jpg';
-import ImageHeaderomobil from './assets/images/mobile/image-hero.jpg';
+import styled, { css } from 'styled-components';
+import ImageHeader from "./assets/images/desktop/header/image-hero.jpg";
+import ImageHeaderomobil from './assets/images/mobile/header/image-hero.jpg';
 import LogoHeader from './assets/images/logo.svg';
-import MenuHamburguesa from './assets/images/icon-hamburger.svg';
-import LogoMobile from './assets/images/mobile/logomobile.svg';
-import CloseMenu from './assets/images/icon-close.svg';
+import MenuHamburguesa from './assets/images/mobile/header/icon-hamburger.svg';
+import LogoMobile from './assets/images/mobile/header/logomobile.svg';
+import CloseMenu from "./assets/images/mobile/header/icon-close.svg";
 //--------------------const footer-------------------
 
-const images = require.context('./assets/images/desktop/footer', true);
-const imageText = {
-  // asignar el texto a cada imagen por nombre 
-  'image-deep-earth.jpg':'DEEP EARTH',
-  'image-night-arcade.jpg':'NIGHT ARCADE',
-  'image-soccer-team.jpg':'SOCCER TEAM VR',
-  'image-grid.jpg':'THE GRID',
-  'image-from-above.jpg':'FROM UP ABOVE VR',
-  'image-pocket-borealis.jpg':'POCKET BOREALIS',
-  'image-curiosity.jpg':'THE CURIOSITY',
-  'image-fisheye.jpg':'MAKE IT FISHEYE',
-};
+// const images = require.context('./assets/images/desktop/footer', true);
+// const imageText = {
+//   // asignar el texto a cada imagen por nombre 
+//   'image-deep-earth.jpg': 'DEEP EARTH',
+//   'image-night-arcade.jpg': 'NIGHT ARCADE',
+//   'image-soccer-team.jpg': 'SOCCER TEAM VR',
+//   'image-grid.jpg': 'THE GRID',
+//   'image-from-above.jpg': 'FROM UP ABOVE VR',
+//   'image-pocket-borealis.jpg': 'POCKET BOREALIS',
+//   'image-curiosity.jpg': 'THE CURIOSITY',
+//   'image-fisheye.jpg': 'MAKE IT FISHEYE',
+// };
 
 //..................array lista.........................
 const list = [
   {
-  texto: "About",
-  link: "#About"
+    texto: "About",
+    link: "#About"
   },
   {
     texto: "Careers",
@@ -50,22 +50,7 @@ const list = [
 
 
 //--------------------styled components header------------------
-const HamburguesaHeader = styled.header`
-  background-color: black;
 
-  h1{
-  display: none;
-  }
-
-  ul{
-    display: block;
-  }
- 
-
-    
-   
-  }
-`;
 
 const BannerHeader = styled.header`
  h1 {
@@ -184,7 +169,7 @@ ${({ theme }) => css`
         ul {
           width: 68%;
           margin-left: -50px;
-          height: 900%;
+          height: 700%;
           display: none;
           top: -10px;
           font-size: 20px;
@@ -192,6 +177,7 @@ ${({ theme }) => css`
           line-height: 2.5;
           position: absolute;
           background-color: black;
+          padding-top: 10%;
         }
 
 
@@ -219,60 +205,145 @@ ${({ theme }) => css`
    
   `}
 `;
+///--------------------estilo nuevo componenete--------------------
+// const HamburguesaHeader = styled.div`
+// ${({ theme }) => css`
+//     @media (max-width: 375px) {
+//       div{
+//         display: flex;
+//         background-color: black;
+//         width: 90%;
+//         height: 100vh;
+//         position:fixed;
+//         .logomobile{
+//           display: flex;
+//           position: absolute;
+//           left: 10px;
+//           top:30px;
+//           width: 90px;
+//           height: 30px;
+//         }
+//         ul {
+//           position: absolute;
+//           width: 68%;
+//           margin-left: -50px;
+//           height: 100vh;
+//           top: 10px;
+//           font-size: 20px;
+//           text-transform: uppercase;
+//           line-height: 2.5;
+//           background-color: transparent;
+//           padding-top: 10%;
+//           left: 20px;
+//         }
+//         li a{
+//           text-decoration: none;
+//           color: white;
+//         }
+//         ul li:hover{
+//           border-bottom: 3px solid white;
+//           cursor: pointer;
+//         }
+//         .fondohamburguesa{
+//           display: block;
+//           opacity:1;
+//           background-color: transparent;
+//           width: 90px;
+//           height: 30px;
+//           position: relative;
+//           left: 250px;
+//           top:30px;
+//           border: none;  
+//           .botonHamburguesa{
+//           width: 100%;
+//           height: 20px;
+//           display: block;
+          
+//         }
+        
+       
+//       }
+//     }
 
-function DespliegueMenu(){
+   
+//   `}
+// `;
+
+function DespliegueMenu() {
   console.log('Se hizo clic en el botón');
   const ul = document.querySelector('nav ul');
+  const h1 = document.querySelector('div h1');
+  const logoMobile = document.querySelector('.logomobile');
   const botonHamburguesa = document.querySelector('.botonHamburguesa');
-  
+
   if (ul.style.display === 'none' || ul.style.display === '') {
     ul.style.display = 'block';
     botonHamburguesa.src = CloseMenu;
+    h1.style.display = "none";
+    // logoMobile.style.position="absolute"
+    // logoMobile.style.position="relative"
+    logoMobile.src = LogoMobile;
   } else {
     ul.style.display = 'none';
-    botonHamburguesa.src = MenuHamburguesa; 
+    botonHamburguesa.src = MenuHamburguesa;
+    h1.style.display = "block";
   }
 }
-  // return (
-  //   <HamburguesaHeader>
-  //     <header>
-  //       <h1>IMMERSIRVE EXPERIENCES THAT DELIVER</h1>
-  //       <ul></ul>
-  //     </header>
-  //   </HamburguesaHeader>
-  // );
+// return (
+//   <HamburguesaHeader>
+//     <header>
+//       <h1>IMMERSIRVE EXPERIENCES THAT DELIVER</h1>
+//       <ul></ul>
+//     </header>
+//   </HamburguesaHeader>
+// );
 
-
-
-
+//-------------------------componente SIDEbAR-----------------------------
+// function SideBar() {
+//   return (
+//     <HamburguesaHeader>
+//     <div>
+//       <img src={LogoMobile} alt='logomobile' className='logomobile'></img>
+//       <button className='fondohamburguesa' onClick={DespliegueMenu}>
+//         <img src={CloseMenu} alt='close'></img>
+//         <img src={MenuHamburguesa} alt='hamburguesa' className='botonHamburguesa'></img>
+//       </button>
+//       <ul>
+//         {list.map(item => <li><a href={item.link}>{item.texto}</a></li>)}
+//       </ul>
+//     </div>
+//     </HamburguesaHeader>
+//   )
+// }
 //--------------------const footer-------------------
 
 function Header() {
   return (
     <BannerHeader>
       <header>
-      <nav>
-        <img src={LogoMobile} alt='logomobile'className='logomobile'></img>
-        <img src={LogoHeader} alt='logo' className='logo'></img>
-        <ul>
-         {list.map (item=> <li><a href={item.link}>{item.texto}</a></li>)}
-        </ul>
-        <button className='fondohamburguesa' onClick={DespliegueMenu}>
-        <img src={CloseMenu} alt='close'></img>
-        <img src={MenuHamburguesa} alt='hamburguesa' className='botonHamburguesa'></img>
-        </button>
+        <nav>
+          <img src={LogoMobile} alt='logomobile' className='logomobile'></img>
+          <img src={LogoHeader} alt='logo' className='logo'></img>
+          <ul>
+            {list.map(item => <li><a href={item.link}>{item.texto}</a></li>)}
+          </ul>
+          <button className='fondohamburguesa' onClick={DespliegueMenu}>
+          {/* <button className='fondohamburguesa' onClick={SideBar}> */}
+            <img src={CloseMenu} alt='close'></img>
+            <img src={MenuHamburguesa} alt='hamburguesa' className='botonHamburguesa'></img>
+          </button>
 
-      </nav>
-      <div> 
-        <img src={ImageHeaderomobil} className='imagen-mobile' alt="imagen hero mobil"></img>
-        <img src={ImageHeader} alt="imagen hero"></img>
+        </nav>
         <div>
-        <h1>IMMERSIRVE EXPERIENCES THAT DELIVER</h1>
+          <img src={ImageHeaderomobil} className='imagen-mobile' alt="imagen hero mobil"></img>
+          <img src={ImageHeader} alt="imagen hero"></img>
+          <div>
+            <h1>IMMERSIRVE EXPERIENCES THAT DELIVER</h1>
+          </div>
         </div>
-      </div>
       </header>
     </BannerHeader>
-    
+
   );
 }
 
@@ -295,7 +366,7 @@ function Header() {
 // }
 
 
-function Main (){
+function Main() {
   return (
     <main>
       <h1>THE LEADER IN INTERACTIVE VR</h1>
@@ -396,9 +467,10 @@ function Main (){
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Header/>
+    <Header />
+    {/* <SideBar/> */}
     {/* <Boton/> */}
-    <Main/>
+    <Main />
     {/* <Footer/> */}
     {/* <App />  */}
     {/* QUITAR APP AL FINALIZAR  */}
