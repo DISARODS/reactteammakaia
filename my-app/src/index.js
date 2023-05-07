@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 // import App from './App';
 import reportWebVitals from './reportWebVitals';
+// import styled, { css } from 'styled-components';
+import styled, { css } from "styled-components";
 
 //--------------------new styled footer-------------------
 
-import styled from 'styled-components';
+// import styled from 'styled-components';
 import ImageMain from "./assets/images/desktop/main/image-interactive.jpg";
 
 //--------------------const footer-------------------
@@ -80,6 +82,7 @@ const CreationsContainer = styled.div`
     }
   }
 `;
+
 const MainContainer = styled.main`
 background-color: #fff;
 padding:4%;
@@ -119,8 +122,58 @@ align-items: center;
       font-size: x-small;
     }
   }
-    `;
+${({ theme }) => css`
+    @media (max-width: 375px) {
+      // main {  
+      //   background-color: aquamarine;
+      //   display: flex;
+      //   flex-direction: column;
+      //   justify-content: center;
+      //   justify-content: center;
+        img{
+          height: 60%;
+          width: 99%;
+          position: relative;
+        }
+        div{
+          position: relative;
+          top: 40px;
+          left: 12px;
+          width: 72%;
+          h1 {
+            font-size: 28px;
+            height: 400px;
+            width:110%;
+            font-weight: lighter;
+            line-height: 29px;
+            color:black;
+            position: absolute;
+            top: -32px;
+            font-weight:350;
+            text-align: center;
+            letter-spacing: 1px;
+          }
+          p{
+            font-size: 11.4px;
+            position: relative;
+            top: 40px;
+            text-align: center;
+            width:220px;
+            left: 7px;
+            line-height: 22px;
+            letter-spacing: .05em;
+          }  
+        }  
 
+      // }
+    
+    }
+  `}
+`;
+
+
+
+      
 //-------------------- new footer-------------------
 function Footer() {
   return (
@@ -148,10 +201,11 @@ function Main() {
       <img src={ImageMain} alt="interactuve play"></img>
       <div>
         <h1>THE LEADER IN INTERACTIVE VR</h1>
-        <p>Founded in 2011, Loopstudios has been producing world-class virtual reality projects for some of the best companies around the globe. Our award-winning creations hace transformed bussiness though digital experiences that bind to their brand</p>
+        <p>Founded in 2011, Loopstudios has been producing world-class virtual reality projects for some of the best companies around the globe. Our award-winning creations hace transformed bussiness though digital experiences that bind to their brand.</p>
       </div>
-</MainContainer>
-)}
+    </MainContainer>
+  )
+}
 //-------------------- new footer-------------------
 //--------------------footer old-------------------
 
@@ -183,20 +237,20 @@ function Main() {
 //--------------------final part-------------------
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-  root.render(
-    <React.StrictMode>
-      <Header />
-      <Main />
-      <Footer />
-      {/* <App />  */}
-      {/* QUITAR APP AL FINALIZAR  */}
-    </React.StrictMode>
-  );
+root.render(
+  <React.StrictMode>
+    <Header />
+    <Main />
+    <Footer />
+    {/* <App />  */}
+    {/* QUITAR APP AL FINALIZAR  */}
+  </React.StrictMode>
+);
 
-  // If you want to start measuring performance in your app, pass a function
-  // to log results (for example: reportWebVitals(console.log))
-  // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-  reportWebVitals();
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
 
 
 
