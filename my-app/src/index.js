@@ -4,6 +4,14 @@ import './index.css';
 // import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// -------------import images footer------------------
+
+import facebookIcon from './assets/images/icon-facebook.svg';
+import twitterIcon from './assets/images/icon-twitter.svg';
+import pinterestIcon from './assets/images/icon-pinterest.svg';
+import instagramIcon from './assets/images/icon-instagram.svg';
+
+
 //--------------------new styled footer-------------------
 
 import styled from 'styled-components';
@@ -38,6 +46,10 @@ const FooterContainer = styled.footer``;
 
 const CreationsContainer = styled.div``;
 
+const EnderContainer = styled.section``;
+
+
+
 //-------------------- new footer-------------------
 function Footer() {
 
@@ -59,8 +71,8 @@ function Footer() {
         <h4>OUR CREATIONS</h4>
         <button>SEE ALL</button>
       </div>
+
       <CreationsContainer>
-       
       <div className='hide-on-mobile'>
         {images.keys().map((imagePath, index) => {
           const imageName = imagePath.split('/').pop();
@@ -88,13 +100,38 @@ function Footer() {
           );
         })}
       </div>
-
       </CreationsContainer>
+
+      <EnderContainer>
+      <section className="black-section">
+            <div class="menu">
+              <img src="./assets/images/icon-facebook.svg" alt="Logo de la página" className="logo"></img>
+              <div class="menu-links">
+                <a href="#">About</a>
+                <a href="#">Careers</a>
+                <a href="#">Events</a>
+                <a href="#">Products</a>
+                <a href="#">Support</a>
+              </div>
+            </div>
+
+            <div className="header">
+              <div className="social-icons">
+                <a href="#"><img src={facebookIcon} alt="Facebook"></img></a>
+                <a href="#"><img src={twitterIcon} alt="Twitter"></img></a>
+                <a href="#"><img src={pinterestIcon} alt="Pinterest"></img></a>
+                <a href="#"><img src={instagramIcon} alt="Instagram"></img></a>
+                <div class="footer">
+                  <p>All rights reserved &copy; 2023 TuEmpresa.</p>
+                </div>
+              </div>
+            </div>
+        </section>
+      </EnderContainer>
+
+      
     </FooterContainer> );}
     
-
-
-//--------------------footer old-------------------
 
 //--------------------final part-------------------
 

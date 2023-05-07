@@ -28,6 +28,11 @@ main{
 footer{
 }
 
+
+/* ------------------------------ FOOTER ----------------------------*/
+/* ------------------------------ FOOTER CREATIONS----------------------------*/
+
+
 .creations-mobile {
   position: relative;
   display: inline-block;
@@ -71,4 +76,57 @@ footer{
   color: #fff;
   font-size: 2rem;
 }
+/* ------------------------------ FOOTER LAST SECTION----------------------------*/
+
+.footer {
+  background-color: black;
+  color: #ccc;
+  font-size: 0.8rem;
+  text-align: center;
+  padding: 20px;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.social-icons a {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.social-icons img {
+  height: 30px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.footer-links a {
+  display: inline-block;
+  margin: 0 20px;
+  font-weight: bold;
+  color: #ccc;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: white;
+}
+
+
+
+/* ------------------------------ FOOTER ----------------------------*/
+
+
 
