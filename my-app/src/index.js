@@ -17,6 +17,10 @@ import MenuHamburguesa from './assets/images/mobile/header/icon-hamburger.svg';
 import LogoMobile from './assets/images/mobile/header/logomobile.svg';
 import CloseMenu from "./assets/images/mobile/header/icon-close.svg";
 
+// -------------import images main------------------
+
+import ImageMain from "./assets/images/desktop/main/image-interactive.jpg";
+
 // -------------import images footer------------------
 
 import facebookIcon from './assets/images/icon-facebook.svg';
@@ -49,15 +53,16 @@ const list = [
 //--------------------styled components header------------------
 
 const BannerHeader = styled.header`
+
  h1 {
   position: absolute;
   font-size: 80px;
   font-style: normal;
   font-weight: lighter;
-  top: 20%;
-  padding: 30px 50px;
+  top: 30%;
+  padding: 3% 5%;
   border: 3px solid white;
-  margin-left: 100px;
+  margin-left: 8%;
   color: white;
   width: 600px;
   line-height: 1.0;
@@ -154,7 +159,7 @@ ${({ theme }) => css`
         }
         h1 {
           position: absolute;
-          font-size: 40px;
+          font-size: 2rem;
           font-style: normal;
           font-weight: lighter;
           top: 25%;
@@ -266,10 +271,110 @@ function Header() {
   );
 }
 
-// -------------import images main------------------
+//--------------------styled components main------------------
 
+const MainContainer = styled.main`
+background-color: hsl(0, 0%, 100%);
+justify-content: center;
+align-items: center;
+  img{
+    height: 20%;
+    width: 55%;
+    padding: 8%;
+  }
 
+  div{
+    padding: 6%;
+    width: 45%;
+    height: 26%;
+    position: absolute;
+    top: 133%;
+    left: 52%;
+    background-color: hsl(0, 0%, 100%);
+    display:flex;
+    flex-direction: column;
+    font-weight: lighter;
+  
+    h1 {
+      font-size: 55px;
+      position: absolute;
+      top: 18%;
+      // left: 15%;
+      height: 20%;
+      width:50%;
+      font-weight: 400;
+      line-height: 60px;
+      color:hsl(0, 0%, 0%);
+      letter-spacing: .05em;
+    }
+    p{
+      position: absolute;
+      top: 60%;
+      height: 45%;
+      width:42%;
+      color: hsl(0, 0%, 55%);
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 28px;
+      letter-spacing: .04em;
+    }
+  }
+${({ theme }) => css`
+    @media (max-width: 375px) {
 
+        img{
+          height: 60%;
+          width: 85%;
+          position: relative;
+          padding: 8%;
+        }
+        div{
+          position: relative;
+          top: 40px;
+          left: 5px;
+          width: 72%;
+          h1 {
+            font-size: 28px;
+            height: 400px;
+            width:110%;
+            font-weight: lighter;
+            line-height: 29px;
+            color:black;
+            position: absolute;
+            top: -32px;
+            font-weight:350;
+            text-align: center;
+            letter-spacing: 1px;
+            left: -6px;
+          }
+          p{
+            font-size: 11.4px;
+            position: relative;
+            top: 40px;
+            text-align: center;
+            width:220px;
+            left: 37px;
+            line-height: 22px;
+            letter-spacing: .05em;
+          }  
+        }  
+      // }
+    
+    }
+  `}
+`;
+//-------------------- function main-------------------
+function Main() {
+  return (
+    <MainContainer>
+      <img src={ImageMain} alt="interactuve play"></img>
+      <div>
+        <h1>THE LEADER IN INTERACTIVE VR</h1>
+        <p>Founded in 2011, Loopstudios has been producing world-class virtual reality projects for some of the best companies around the globe. Our award-winning creations hace transformed bussiness though digital experiences that bind to their brand.</p>
+      </div>
+    </MainContainer>
+  )
+}
 //--------------------const footer-------------------
 
 const images = require.context('./assets/images/desktop/footer', true);
@@ -290,6 +395,10 @@ const HeadContainerF = styledF.div`
     display: flex;
     align-items: center;
     width: 100%;
+    margin-left: 4%;
+    font-size: 2rem;
+    margin-right: 4%;
+
   }
 
   h4 {
@@ -341,6 +450,7 @@ const CreationsContainer = styledF.div`
   .creations-desktop,
   .creations-mobile {
     position: relative;
+    
   }
 
   .creations-desktop::before,
@@ -353,6 +463,12 @@ const CreationsContainer = styledF.div`
     height: 100%;
     background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.01) 30%, rgba(51,51,51,0.8) 100%);
     z-index: 0;
+  }
+
+  .creations-desktop:hover::before,
+  .creations-mobile:hover::before {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.01) 30%, rgba(200,200,200,0.8) 100%);
+    cursor: pointer;
   }
 
   .creations-desktop img,
@@ -385,6 +501,11 @@ const CreationsContainer = styledF.div`
     font-weight: 100;
   }
 
+  .creations-mobile p:hover {
+    color: black;
+    cursor: pointer;
+  }
+
   .creations-desktop {
     position: relative;
     display: inline-block;
@@ -403,6 +524,12 @@ const CreationsContainer = styledF.div`
     margin-top: 20px;
   }
 
+  .creations-desktop p:hover {
+    color: black;
+    cursor: pointer;
+
+  }
+  
   button {
     background-color: #fff;
     color: #000;
@@ -664,11 +791,13 @@ function Footer() {
 
 //--------------------CONSTANTE DE FUENTES -------------------
 const StyledStrictMode = styled.div`
-  transform: scale(1.0);
+  
   body {
     margin: 0;
     font-size: 15px;
     font-family: 'Alata', sans-serif;
+    display: flex;
+ 
   }
   
   h1, h2, h3, h4, h5, h6, p, a{
@@ -683,10 +812,8 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <StyledStrictMode>
     <Header/>
-    {/* <Main/> */}
+    <Main/>
     <Footer/>
-    {/* <App />  */}
-    {/* QUITAR APP AL FINALIZAR  */}
   </StyledStrictMode>
 );
 
