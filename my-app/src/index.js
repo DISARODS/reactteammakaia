@@ -28,7 +28,7 @@ import CloseMenu from "./assets/images/mobile/header/icon-close.svg";
 //   'image-fisheye.jpg': 'MAKE IT FISHEYE',
 // };
 
-//..................array lista.........................
+//..................array lista footer.........................
 const list = [
   {
     texto: "About",
@@ -141,7 +141,7 @@ ${({ theme }) => css`
           width: 100%;
           object-fit: cover;
           position: relative;
-         z-index: -1000;
+          z-index: -1000;
         }          
           
         }
@@ -169,7 +169,7 @@ ${({ theme }) => css`
           top: 25%;
           padding: 35px 50px;
           border: 3px solid white;
-          margin-left: 30px;
+          margin-left: 7%;
           color: white;
           width: 200px;
           line-height: 1.0;
@@ -298,9 +298,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Header />
-    {/* <SideBar/> */}
-    {/* <Boton/> */}
-    <Main />
+    {/* <Main /> */}
     {/* <Footer/> */}
     {/* <App />  */}
     {/* QUITAR APP AL FINALIZAR  */}
