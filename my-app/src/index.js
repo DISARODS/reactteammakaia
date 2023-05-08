@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 // import styled, { css } from 'styled-components';
 import styled, { css } from "styled-components";
 
+
 //--------------------new styled footer-------------------
 
 // import styled from 'styled-components';
@@ -84,42 +85,51 @@ const CreationsContainer = styled.div`
 `;
 
 const MainContainer = styled.main`
-background-color: #fff;
-padding:4%;
+background-color: hsl(0, 0%, 100%);
 justify-content: center;
 align-items: center;
   img{
-    height: 30%;
-    width: 30%;
+    height: 20%;
+    width: 55%;
     position: relative;
+    padding: 8%;
   }
   div{
-    padding: 2.5% 2% 1.5% 4%;
-    width: 22%;
-    height: 17%;
+    padding: 6%;
+    width: 45%;
+    height: 26%;
     position: absolute;
-    top: 300px;
-    left: 470px;
-    background-color: #fff;
+    top: 55%;
+    left: 50%;
+    background-color: hsl(0, 0%, 100%);
     display:flex;
     flex-direction: column;
     font-weight: lighter;
    
   
     h1 {
-      font-size: 800;
-      margin-bottom: 20px;
-      height: 400px;
-      width:60%;
-      font-weight: lighter;
-      line-height: 29px;
-      color:black;
+      font-size: 55px;
+      position: absolute;
+      top: 18%;
+      // left: 15%;
+      height: 20%;
+      width:50%;
+      font-weight: 400;
+      line-height: 60px;
+      color:hsl(0, 0%, 0%);
+      letter-spacing: .05em;
     }
     p{
-      height: 800px;
-      width:65%;
-      color: grey;
-      font-size: x-small;
+      position: absolute;
+      top: 60%;
+      // left: 15%;
+      height: 45%;
+      width:42%;
+      color: hsl(0, 0%, 55%);
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 28px;
+      letter-spacing: .04em;
     }
   }
 ${({ theme }) => css`
@@ -132,13 +142,14 @@ ${({ theme }) => css`
       //   justify-content: center;
         img{
           height: 60%;
-          width: 99%;
+          width: 85%;
           position: relative;
+          padding: 8%;
         }
         div{
           position: relative;
           top: 40px;
-          left: 12px;
+          left: 5px;
           width: 72%;
           h1 {
             font-size: 28px;
@@ -152,6 +163,7 @@ ${({ theme }) => css`
             font-weight:350;
             text-align: center;
             letter-spacing: 1px;
+            left: -6px;
           }
           p{
             font-size: 11.4px;
@@ -159,7 +171,7 @@ ${({ theme }) => css`
             top: 40px;
             text-align: center;
             width:220px;
-            left: 7px;
+            left: 37px;
             line-height: 22px;
             letter-spacing: .05em;
           }  
