@@ -58,7 +58,7 @@ const BannerHeader = styled.header`
   font-size: 80px;
   font-style: normal;
   font-weight: lighter;
-  top: 35%;
+  top: 20%;
   padding: 30px 50px;
   border: 3px solid white;
   margin-left: 100px;
@@ -123,6 +123,8 @@ ul li:hover{
     display: none;
   }
 }
+
+
 
 ${({ theme }) => css`
     @media (max-width: 375px) {
